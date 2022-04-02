@@ -15,7 +15,6 @@ import {
 import { BsCart3 } from "react-icons/bs";
 import { BiShowAlt } from "react-icons/bi";
 import { ImBin2 } from "react-icons/im";
-import CartButton from "./CartButton";
 
 function HomePageNav() {
   return (
