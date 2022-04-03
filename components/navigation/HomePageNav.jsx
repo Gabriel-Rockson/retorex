@@ -31,11 +31,11 @@ function HomePageNav() {
             Start Selling
           </Button>
           <Menu>
-            <MenuButton>
+            <MenuButton as="div">
               <Button colorScheme="whiteAlpha" variant="ghost">
                 <Text mr="2">Cart</Text>
                 <Icon as={BsCart3} fontSize={"2xl"} color="white" />
-                <sup style={{ fontSize: "16px" }}>3</sup>
+                <Text as='sup' fontSize="16px">3</Text>
               </Button>
             </MenuButton>
             <MenuList>
