@@ -4,20 +4,30 @@ import { Box, Heading, Text, Button } from "@chakra-ui/react";
 
 import itemImage from "../../static/images/journaling-template.jpg";
 
-function ProductItem() {
+function ProductItem({id, imageUrl, title, seller, price, category}) {
   return (
-    <Box border={'gray 1px solid'} >
-      <Image 
-      src={itemImage} 
-      alt="Image of Item"/>
+    <Box pb={2} boxShadow="md" fontFamily="sans-serif" position={"relative"}>
+      <Image
+        src={imageUrl}
+        blurDataURL={itemImage}
+        alt={title}
+        width={500}
+        height={400}
+      />
       <Box p={2}>
-        <Heading size={'md'}>A Journaling Template</Heading>
+        <Heading size={"sm"}>{title}</Heading>
+        <Text pt={2}>Category: {category}</Text>
+        <Text pt={2}>Sold By: {seller}</Text>
         <Box>
-          <Text fontSize="3xl" fontWeight={'bold'} fontFamily={'consolas'}>$ 42.59</Text>
-          <Button my={2} colorScheme={'green'}>Add To Cart</Button>
+          <Text fontSize="xl" fontWeight={"bold"}>
+            {price}
+          </Text>
+          <Text>Sold By: {seller}</Text>
+          <Button my={2} colorScheme={"green"}>
+            Add To Cart
+          </Button>
         </Box>
       </Box>
-
     </Box>
   );
 }
