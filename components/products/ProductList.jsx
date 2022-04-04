@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import ProductItem from "./ProductItem";
 
 import { products } from "../../data/products";
 
+import { CartContext } from "../../context/cartContext";
+
 function ProductList() {
   const [allProducts, setAllProducts] = useState(products);
-  console.log(allProducts)
+  const { cartItems, setCartItems } = useContext(CartContext);
+
   return (
     <Box px={[2, 10]} py={[4, 5]}>
       <Grid
@@ -29,6 +32,7 @@ function ProductList() {
               seller={product.seller}
               price={product.price}
               category={product.category}
+              inCart={cartItems.some((item) => item.id === product.id)}
             />
           </GridItem>
         ))}
