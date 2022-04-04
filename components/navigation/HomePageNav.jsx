@@ -1,22 +1,29 @@
 import React from "react";
+import { useRouter } from "next/router";
 import {
   Flex,
   Spacer,
   Box,
-  Text,
   Button,
   Heading,
-  Icon,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import { BsCart3 } from "react-icons/bs";
+
 import { BiShowAlt } from "react-icons/bi";
 import { ImBin2 } from "react-icons/im";
+import CartButton from "./CartButton";
 
 function HomePageNav() {
+  const router = useRouter();
+
+  const handleOpenCart = (e) => {
+    e.preventDefault();
+    router.push("/cart");
+  };
+
   return (
     <>
       <Flex bg="black" px={[2, 10]} py={2} alignItems="center">
@@ -31,15 +38,13 @@ function HomePageNav() {
             Start Selling
           </Button>
           <Menu>
-            <MenuButton as="div">
-              <Button colorScheme="whiteAlpha" variant="ghost">
-                <Text mr="2">Cart</Text>
-                <Icon as={BsCart3} fontSize={"2xl"} color="white" />
-                <Text as='sup' fontSize="16px">3</Text>
-              </Button>
+            <MenuButton as="div" cursor={"pointer"}>
+              <CartButton />
             </MenuButton>
             <MenuList>
-              <MenuItem icon={<BiShowAlt />}>Show Items</MenuItem>
+              <MenuItem onClick={handleOpenCart} icon={<BiShowAlt />}>
+                Show Cart Items
+              </MenuItem>
               <MenuItem icon={<ImBin2 />}>Clear Items</MenuItem>
             </MenuList>
           </Menu>
