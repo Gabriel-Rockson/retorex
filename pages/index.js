@@ -5,7 +5,6 @@ import ProductList from "../components/products/ProductList";
 const HomePage = () => {
   return (
     <div>
-      <HomePageNav />
       <ProductList />
       <ul>
         <li>List the currently added items</li>

@@ -11,7 +11,7 @@ function ProductList() {
   const { cartItems, setCartItems } = useContext(CartContext);
 
   return (
-    <Box px={[2, 10]} py={[4, 5]}>
+    <Box>
       <Grid
         templateColumns={[
           "repeat(1, 1fr)",

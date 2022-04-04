@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
+import MainLayout from "../components/layouts/MainLayout";
+
 import { CartContext } from "../context/cartContext";
 
 const colors = {
@@ -19,7 +21,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>
       <CartContext.Provider value={{ cartItems, setCartItems }}>
-        <Component {...pageProps} />
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
       </CartContext.Provider>
     </ChakraProvider>
   );
