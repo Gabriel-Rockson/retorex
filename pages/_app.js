@@ -1,19 +1,26 @@
+import { useState } from "react";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+import { CartContext } from "../context/cartContext";
 
 const colors = {
   brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  }
-}
+    900: "#1a365d",
+    800: "#153e75",
+    700: "#2a69ac",
+  },
+};
 
-const theme = extendTheme({ colors })
+const theme = extendTheme({ colors });
 
 function MyApp({ Component, pageProps }) {
+  const [cartItems, setCartItems] = useState([{id: 1, title: "new"}]);
+
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <CartContext.Provider value={{ cartItems, setCartItems }}>
+        <Component {...pageProps} />
+      </CartContext.Provider>
     </ChakraProvider>
   );
 }
