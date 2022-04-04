@@ -14,7 +14,7 @@ const colors = {
 const theme = extendTheme({ colors });
 
 function MyApp({ Component, pageProps }) {
-  const [cartItems, setCartItems] = useState([{id: 1, title: "new"}]);
+  const [cartItems, setCartItems] = useState([]);
 
   return (
     <ChakraProvider theme={theme}>
