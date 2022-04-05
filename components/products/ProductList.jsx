@@ -2,12 +2,9 @@ import { useState, useContext } from "react";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import ProductItem from "./ProductItem";
 
-import { products } from "../../data/products";
-
 import { CartContext } from "../../context/cartContext";
 
-function ProductList() {
-  const [allProducts, setAllProducts] = useState(products);
+function ProductList({ products }) {
   const { cartItems, setCartItems } = useContext(CartContext);
 
   return (
@@ -23,7 +20,7 @@ function ProductList() {
         templateRows={["repeat(1, 1fr)"]}
         gap={[5, 6]}
       >
-        {allProducts.map((product) => (
+        {products.map((product) => (
           <GridItem key={product.id}>
             <ProductItem
               id={product.id}
