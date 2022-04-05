@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import NextLink from "next/link";
 import {
   Flex,
   Spacer,
@@ -10,6 +11,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Link,
 } from "@chakra-ui/react";
 
 import { BiShowAlt } from "react-icons/bi";
@@ -28,9 +30,12 @@ function HomePageNav() {
     <>
       <Flex bg="black" px={[2, 10]} py={2} alignItems="center">
         <Box>
-          <Heading size="md" color="white">
-            Retorex
-          </Heading>
+          {/* BUG - fix the underline in the link */}
+          <NextLink href="/" passHref>
+            <Heading as={Link} textDecoration="none" size="md" color="white">
+              Retorex
+            </Heading>
+          </NextLink>
         </Box>
         <Spacer />
         <Flex>
