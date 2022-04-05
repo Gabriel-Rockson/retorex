@@ -13,7 +13,12 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const fonts = {
+  heading: "Open Sans, sans-serif",
+  body: "Raleway, sans-serif",
+};
+
+const theme = extendTheme({ colors, fonts });
 
 function MyApp({ Component, pageProps }) {
   const [cartItems, setCartItems] = useState([]);
